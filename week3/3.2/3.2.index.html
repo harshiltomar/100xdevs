@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="3.2.style.css" type="text/css" />
+  </head>
+  <body>
+    <script>
+      // DOM
+      //   function getAnimalData() {
+      //     // console.log("animal agya bc !!!");
+      //     // alert("Animal!!! woooo!!");
+      //     fetch("https://fakerapi.it/api/v1/person").then(function (response) {
+      //       response.json().then(function (finalData) {
+      //         console.log(finalData);
+      //       });
+      //     });
+      //   }
+
+      async function getAnimalData() {
+        const response = await fetch("https://fakerapi.it/api/v1/person");
+        const finalData = await response.json();
+        console.log(finalData);
+      }
+    </script>
+    <button onclick="getAnimalData()">Get Animal Data</button>
+  </body>
+</html>
