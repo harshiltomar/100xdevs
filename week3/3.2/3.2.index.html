@@ -19,12 +19,19 @@
       //     });
       //   }
 
-      async function getAnimalData() {
-        const response = await fetch("https://fakerapi.it/api/v1/person");
+      async function getUserData() {
+        const response = await fetch("https://fakerapi.it/api/v1/person", {
+          headers: {
+            Authorization: localStorage.read("token"),
+          },
+        });
         const finalData = await response.json();
         console.log(finalData);
+        document.getElementById("userData").innerHTML =
+          JSON.stringify(finalData);
       }
     </script>
-    <button onclick="getAnimalData()">Get Animal Data</button>
+    <div id="userData"></div>
+    <button onclick="getUserData()">Get Animal Data</button>
   </body>
 </html>
