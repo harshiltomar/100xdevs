@@ -1,0 +1,49 @@
+<html>
+  <script>
+    function addTodo() {
+      const title = document.getElementById("title").value;
+      const description = document.getElementById("description").value;
+      const orginalHtml = document.getElementById("container").innerHTML;
+
+      //document.createElement
+      const childDiv = document.createElement("div");
+      outerDiv.innerHTML = title;
+      document.getElementById("container").appendChild(childDiv);
+
+      //   document.getElementById("container").innerHTML = `<div>
+      //       <div>${title}</div>
+      //       <div>${description}</div>
+      //       <button>Mark as Done</button>
+      //     </div>`;
+
+      function updateDomAccToState(state) {
+        const parent = document.getElementById("container");
+
+        parent.innerHTML = "";
+
+        for (let i = 0; i < state.length; i++) {
+          const child = createChild(
+            state[i].title,
+            state[i].description,
+            state[i].id
+          );
+          parent.appendChild(child);
+        }
+      }
+
+      updateDomAccToState([]);
+
+      window.setInterval(async function () {
+        const res = await fetch("https://blahblah");
+        const json = await res.json();
+        updateDomAccToState(json);
+      });
+    }
+  </script>
+  <div>
+    <input id="title" type="text" placeholder="title" />
+    <input id="description" type="text" placeholder="description" />
+    <button id>Add Todo</button>
+    <div id="container"></div>
+  </div>
+</html>
