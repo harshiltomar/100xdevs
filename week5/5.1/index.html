@@ -13,11 +13,17 @@
 
       function buttonComponenetReRender() {
         document.getElementById("buttonParent").innerHTML = "";
-        const button = document.createElement("button");
-        button.innerHTML = `Counter ${state.count}`;
-        button.setAttribute("onclick", "onButtonPress()");
-        document.getElementById("buttonParent").appendChild(button);
+        const component = button(state.count);
+        document.getElementById("buttonParent").appendChild(component);
       }
+
+      function buttonComponenet(count) {
+        const button = document.createElement("button");
+        button.innerHTML = `Counter ${count}`;
+        button.setAttribute("onclick", "onButtonPress()");
+        return button;
+      }
+
       buttonComponenetReRender();
     </script>
   </body>
