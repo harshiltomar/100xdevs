@@ -23,6 +23,15 @@ function CreateTodo() {
       <br />
 
       <button
+        onClick={() => {
+          fetch("url", {
+            method: "post",
+            body: {
+              title: title,
+              description: description,
+            },
+          });
+        }}
         style={{
           padding: 10,
           margin: 10,
