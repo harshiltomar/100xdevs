@@ -1,8 +1,15 @@
-import { memo, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import React from "react";
 
 function App() {
   const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    fetch("https://blahblah").then(async function (res) {
+      const json = await res.json();
+      setTodos(json.todos);
+    });
+  }, []);
 
   function ClickStuff() {
     console.log("Child Clicked");
