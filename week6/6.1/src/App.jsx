@@ -1,23 +1,17 @@
 import React, { Fragment, useState } from "react";
 
 function App() {
-  const [title, setTitle] = useState("Harshil");
-
-  function updateTitle() {
-    setTitle(Math.random());
-  }
-
-  return (
-    <>
-      <Header title={title}></Header>
-      <Header title="Tomar"></Header>
-      <button onClick={updateTitle}>Update Title Name</button>
-    </>
-  );
+  <div>
+    <CardWrapper>Hi There</CardWrapper>;
+  </div>;
 }
 
-const Header = React.memo(function Header({ title }) {
-  return <div>{title}</div>;
-});
+function CardWrapper({ children }) {
+  //Div with Black Border
+
+  return (
+    <div style={{ border: "2px solid black", padding: 20 }}>{children}</div>
+  );
+}
 
 export default App;
