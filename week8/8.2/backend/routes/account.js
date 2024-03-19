@@ -1,8 +1,8 @@
+// backend/routes/account.js
 const express = require("express");
-const mongoose = require("mongooose");
-const { Account } = require("../db");
 const { authMiddleware } = require("../middleware");
-const { mongoose } = require("mongoose");
+const { Account } = require("../db");
+const { default: mongoose } = require("mongoose");
 
 const router = express.Router();
 
@@ -22,7 +22,7 @@ router.post("/transfer", authMiddleware, async (req, res) => {
   session.startTransaction();
   const { amount, to } = req.body;
 
-  //Fetch account details within transaction
+  // Fetch the accounts within the transaction
   const account = await Account.findOne({ userId: req.userId }).session(
     session
   );
@@ -54,9 +54,11 @@ router.post("/transfer", authMiddleware, async (req, res) => {
     { $inc: { balance: amount } }
   ).session(session);
 
-  //Commit the transaction
+  // Commit the transaction
   await session.commitTransaction();
   res.json({
-    message: "Transfer successfull",
+    message: "Transfer successful",
   });
 });
+
+module.exports = router;

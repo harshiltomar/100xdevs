@@ -1,15 +1,18 @@
-const mongoose = require("mongooose");
+// backend/db.js
+const mongoose = require("mongoose");
 
 mongoose.connect(
   "mongodb+srv://harshiltomar20:Shanu2020@freeclust.ki2lwvc.mongodb.net/"
 );
 
-const UserSchema = new mongoose.Schema({
-  //Schema
+// Create a Schema for Users
+const userSchema = new mongoose.Schema({
   username: {
     type: String,
     required: true,
     unique: true,
+    trim: true,
+    lowercase: true,
     minLength: 3,
     maxLength: 30,
   },
@@ -32,9 +35,9 @@ const UserSchema = new mongoose.Schema({
   },
 });
 
-const AccountSchema = new mongoose.Schema({
+const accountSchema = new mongoose.Schema({
   userId: {
-    type: mongoose.Schema.Types.ObjectId, //Refer to User model
+    type: mongoose.Schema.Types.ObjectId, // Reference to User model
     ref: "User",
     required: true,
   },
@@ -44,9 +47,10 @@ const AccountSchema = new mongoose.Schema({
   },
 });
 
-const User = mongoose.model("User", UserSchema);
-const Account = mongoose.model("Account", AccountSchema);
+const Account = mongoose.model("Account", accountSchema);
+const User = mongoose.model("User", userSchema);
 
 module.exports = {
   User,
+  Account,
 };
