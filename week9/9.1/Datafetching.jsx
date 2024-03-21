@@ -77,10 +77,10 @@ function Track({ todo }) {
 
 export default App;
 
-// 
+//
 // Code given by VERCEL: SWR
 
-// import useSwr from 'swr' 
+// import useSwr from 'swr'
 
 // const fetcher= async function(url) {
 //     const data= await fetch(url);
@@ -94,4 +94,4 @@ export default App;
 //     if(error) return <div>failed to load...</div>
 //     if(isLoading) return <div>Loading...</div>
 //     return <div>hello, you have {data.todos.length} todos!</div>
-}
+//}
