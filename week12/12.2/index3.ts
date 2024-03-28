@@ -28,7 +28,7 @@ const userProfileSchema = z.object({
 });
 
 app.put("/user", (req, res) => {
-  const { success } = useProfileSchema.safeParse(req.body);
+  const { success } = userProfileSchema.safeParse(req.body);
   const updateBody = req.body;
 
   if (!success) {
