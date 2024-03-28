@@ -51,3 +51,19 @@ BEGIN
 
     PRINT 'Product Updated';
 END;
+
+
+DELIMETER && 
+CREATE PROCEDURE get_merit_student()
+BEGIN
+      SELECT * FROM student_info WHERE marks > 70;
+      COUNT(stude_code) AS Total_Student FROM student_info;
+END && 
+DELIMETER
+
+CALL get_merit_student();
+
+CREATE VIEW dummy AS
+SELECT dummy1, dummy2,
+FROM dumytable
+WHERE type="random"
