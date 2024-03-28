@@ -1,1 +1,11 @@
-.README.md
+# Ignore .env files
+*.env
+
+# Ignore .env files in subdirectories
+**/.env
+
+# Ignore node_modules directory
+node_modules/
+
+# Ignore node_modules directory in any subfolder
+**/node_modules/

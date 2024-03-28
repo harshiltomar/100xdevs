@@ -1,0 +1,31 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "postgresql"
+    url = "postgresql://prisma:stuff@stuff:1234/prisma"
+}
+
+model User {
+    id Int @id @default(autoincrement())
+    email String @unique
+    firstName String?
+    lastName String?
+    password String? 
+    phoneNumber String?    
+}
+
+model Todo {
+    id Int @id @default(autoincrement())
+    title String
+    done Boolean @default(false)
+    description String
+    userId Int
+}
+
+// To Generate migrations: npx prisma migrate dev --name
+
+//Run on local: psql -h localhost -d postgres -U postgres <neondb_backup.sql
+
+//psql lets u run queries and explore your database; psql cn be used to explroe your sql db
