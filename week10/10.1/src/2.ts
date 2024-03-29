@@ -29,3 +29,60 @@ async function createDB() {
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
     )`);
 }
+
+async function insertUserAndAddress(
+  username: string,
+  email: string,
+  password: string,
+  city: string,
+  country: string,
+  street: string,
+  pincode: string
+) {
+  try {
+    await client.connect();
+
+    //Start
+    await client.query("BEGIN");
+
+    const insertUserText = `INSERT INTO users (username, email, password) VALUES ($1, $2, $3) RETURNING id;`;
+
+    const userRes = await client.query(insertUserText, [
+      username,
+      email,
+      password,
+    ]);
+
+    const userId = userRes.rows[0].id;
+
+    const insertAddressText = `INSERT INTO address (user_id, city, country, street, pincode) VALUES ($1, $2, $3, $4, $5)`;
+
+    await client.query(insertAddressText, [
+      userId,
+      city,
+      country,
+      street,
+      pincode,
+    ]);
+
+    await client.query("COMMIT");
+
+    console.log("User and address inserted successfully");
+  } catch (err) {
+    await client.query("ROLLBACK");
+    console.log("Error during transaction, rolled back", err);
+    throw err;
+  } finally {
+    await client.end();
+  }
+}
+
+insertUserAndAddress(
+  "Harshil",
+  "harshiltomar20",
+  "pass123",
+  "New York",
+  "USA",
+  "123",
+  "1001"
+);
