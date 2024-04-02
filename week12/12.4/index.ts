@@ -40,9 +40,14 @@ async function insertUserData(
   email: string
 ) {
   await client2.connect();
-  const result = await client2.query(`
-  INSERT INTO users (username, password, email)
-  VALUES ('${username}', '${password}', '${email}')`);
+  // const result = await client2.query(`
+  // INSERT INTO users (username, password, email)
+  // VALUES ('${username}', '${password}', '${email}')`);
+
+  const result = await client2.query(
+    `INSERT INTO users (username, password, email) VALUES {$1, $2, $3}`,
+    [username, password, email]
+  );
 }
 
 createUsersTable();
