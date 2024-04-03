@@ -1,0 +1,22 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Level {
+  id      Int @id @default(autoincrement())
+  level   Level
+  message String
+  meta    Json
+}
+
+enum Level {
+  Info
+  Warn 
+  Error
+}
