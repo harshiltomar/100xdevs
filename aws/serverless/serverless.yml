@@ -1,0 +1,14 @@
+service: aws-api-http
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  architecture: x86_64
+
+functions:
+  api:
+    handler: index.handler
+    events:
+      - httpApi:
+          path: /
+          method: get
