@@ -4,6 +4,8 @@ frameworkVersion: "3"
 provider:
   name: aws
   architecture: x86_64
+  runtime: nodejs20.x
+  region: ap-south-1
 
 functions:
   api:
@@ -11,4 +13,4 @@ functions:
     events:
       - httpApi:
           path: /
-          method: get
+          method: GET
