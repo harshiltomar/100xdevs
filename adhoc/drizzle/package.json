@@ -1,0 +1,23 @@
+{
+  "name": "drizzle",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@types/node": "20.14.0",
+    "drizzle-kit": "^0.22.1",
+    "tsx": "4.7.1",
+    "typescript": "5.4.5"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@neondatabase/serverless": "^0.9.3",
+    "drizzle-orm": "^0.31.0",
+    "postgres": "^3.4.4"
+  }
+}
