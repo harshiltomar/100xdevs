@@ -53,3 +53,30 @@ the default branch used to be master, but it is now called main. There is nothin
 - git branch -m <old_name> <new_name> : rename a branch
 - git branch -d <name> : delete the branch
 - git checkout <name>
+
+# Git diff
+- The git diff is an informative command that shows the differences between two commits. It is used to compare the changes made in one commit with the changes made in another commit. Git consider the changed versions of same file as two different files. Then it gives names to these two files and shows the differences between them.
+- git diff
+- It has some further branches
+    - git diff --stages : shows changes in last commit and staging area
+    - git diff <name1> <name2> : compares the diff between two branches
+    - git diff <commit1> <commit2> : compare the diff between two commits 
+
+# Git stash
+- Stash is a way to save your changes in a temporary location. It is useful when you want to make changes to a file but don’t want to commit them yet. You can then come back to the file later and apply the changes.
+
+Conflicting changes will not allow you to switch branches without committing the changes. Another alternative is to use the git stash command to save your changes in a temporary location.
+- git stash
+- git stash save "comment" : saves stash with a name
+- git stash list : view list of stash
+- git stash apply : apply the stash
+- git stash pop : apply and drop the stash
+- git stash drop : drop the stash
+
+# Git Tags
+- Tags are a way to mark a specific point in your repository. They are useful when you want to remember a specific version of your code or when you want to refer to a specific commit. Tags are like sticky notes that you can attach to your commits.
+- git tag <name> : This tag get's attached to current commit
+- git tag: list of all tags
+- git tag <tag-name> <commit-hash> : specific commit
+- then , git push origin <tag-name>
+- git tag -d <tag-name> : delete
