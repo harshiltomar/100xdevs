@@ -6,7 +6,11 @@ import {chromium, test} from "@playwright/test";
 test("Login test demo", async()=> {
 
     // Gives us a browser instance
-    const browser = await chromium.launch();
+    const browser = await chromium.launch({
+
+        // makes it open browser
+        headless: false
+    });
 
     // Gives us a new browser context
     const context = await browser.newContext();
@@ -18,5 +22,26 @@ test("Login test demo", async()=> {
 
     await page.hover("//a[@data-toggle='dropdown']//span[contains(.,'My account')]")
 
-    await page.click("text=Login")
+    // await page.click("text=Login")
+    await page.click("'Login'");
+
+    await page.fill("input[name='email']", "harshil20@gmail.com");
+    await page.fill("input[name='password']", "Pass123");
+    await page.click("input[value='Login']");
+
+    await page.waitForTimeout(5000);
+
+    const newContext = await browser.newContext();
+
+    // creates a new page in incognito to avoid session and cookie transfer
+    const page2 = await newContext.newPage();
+
+    const page1= await context.newPage();
+
+    // carry forword the chache and session cookies to a new tab :: you will already be logged in
+    page1.goto("Logged in URL");
+
+    await page.waitForTimeout(5000);
 })
+
+// 21:35
