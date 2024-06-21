@@ -9,3 +9,7 @@ node_modules/
 
 # Ignore node_modules directory in any subfolder
 **/node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
