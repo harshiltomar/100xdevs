@@ -15,3 +15,5 @@
 - Components based testing
 - Playwright Test Runner
 - Docker Support
+
+![alt text](image.png)
