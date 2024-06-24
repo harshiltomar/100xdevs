@@ -1,7 +1,8 @@
+//@ts-ignore
 import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
-    testMatch: ["tests/basicInteractions.test.ts"],
+    testMatch: ["tests/frames.test.ts"],
 
     // Open a browser window
     use: {
