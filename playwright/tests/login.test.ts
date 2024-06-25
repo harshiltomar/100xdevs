@@ -1,3 +1,4 @@
+//@ts-ignore
 import {chromium, test} from "@playwright/test";
 
 
