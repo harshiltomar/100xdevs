@@ -13,7 +13,7 @@ export function ExistingCourseCard({
 }: CourseCardProps) {
 
     return <div className="border rounded m-8">
-        <img src={imageUrl} className="w-full border-b rounded-lg w-full md:w-[450px]" />
+        <img src={imageUrl} className="w-full border-b rounded-lg md:w-[450px]" />
         <div className="flex justify-between p-2">
             <div className="text-xl flex flex-col justify-center">
                 {title}
