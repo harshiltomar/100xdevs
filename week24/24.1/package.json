@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "build": "tsc",
     "test": "jest"
   },
   "keywords": [],
@@ -17,7 +18,6 @@
   "dependencies": {
     "@types/supertest": "^6.0.2",
     "express": "^4.19.2",
-    "supertest": "^7.0.0",
-    "typescript": "^5.5.4"
+    "supertest": "^7.0.0"
   }
 }

@@ -1,20 +1,18 @@
 // export function sum(a: number, b: number) {
-//     return a+b;
-// }
-
-// export function multiply(a: number, b: number) {
-//     return a*b;
+//     return a + b
 // }
 
 import express from "express";
 
 export const app = express();
-
 app.use(express.json());
 
-app.post("/Sum", (req, res)=> {
-    const {a,b}= req.body;
-    const ans = a + b;
+app.post("/sum", (req, res) => {
+    const a = req.body.a;
+    const b = req.body.b;
+    const answer = a + b;
 
-    res.json(ans);
-})
+    res.json({
+        answer
+    })
+});
