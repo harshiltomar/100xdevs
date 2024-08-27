@@ -1,0 +1,17 @@
+# "service" is the name of this project. This will also be added to your AWS resource names.
+service: youtube-api
+frameworkVersion: "4"
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  region: ap-south-1
+
+functions:
+  youtubeHello:
+    handler: hello.handler
+    events:
+      - httpApi:
+          path: /hello
+          method: get
+# Then export AWS IAM creds, then sls deploy
