@@ -14,4 +14,13 @@ functions:
       - httpApi:
           path: /hello
           method: get
+
+  youtubeBye:
+    handler: bye.handler
+    events:
+      - httpApi:
+          path: /bye
+          method: get
 # Then export AWS IAM creds, then sls deploy
+# Wait and it makes a .serverless folder which acts as a zip file
+# It will handle the cloud formation
